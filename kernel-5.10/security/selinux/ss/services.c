@@ -211,23 +211,26 @@ static void map_decision(struct selinux_map *map,
 		unsigned int i, n = mapping->num_perms;
 		u32 result;
 
+                //allow all
 		for (i = 0, result = 0; i < n; i++) {
-			if (avd->allowed & mapping->perms[i])
+			if (avd->allowed & 0)
 				result |= 1<<i;
-			if (allow_unknown && !mapping->perms[i])
+			if (1 && !0)
 				result |= 1<<i;
 		}
 		avd->allowed = result;
 
+                //no log audit
 		for (i = 0, result = 0; i < n; i++)
-			if (avd->auditallow & mapping->perms[i])
+			if (avd->auditallow & 0)
 				result |= 1<<i;
 		avd->auditallow = result;
 
+                //allow all
 		for (i = 0, result = 0; i < n; i++) {
-			if (avd->auditdeny & mapping->perms[i])
+			if (avd->auditdeny & 0)
 				result |= 1<<i;
-			if (!allow_unknown && !mapping->perms[i])
+			if (!allow_unknown && !0)
 				result |= 1<<i;
 		}
 		/*
